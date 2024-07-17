@@ -33,8 +33,9 @@ def main():
             add_task(task)
         if choose_option == '2':
             view_tasks()
-
-        
-    
+        if choose_option == '3':
+            view_tasks()
+            task_number = int(input('Enter task number to remove: '))
+            remove_task()
 
 main()
