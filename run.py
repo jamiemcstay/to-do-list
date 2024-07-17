@@ -23,6 +23,12 @@ def view_tasks():
         for idx, task in enumerate(tasks, 1):
             print(f"{idx}. {task}")
 
+def remove_tasks(task_number):
+    if 0 < task_number <= len(tasks):
+        removed_task = tasks.pop(task_number - 1)
+        print(f"Removed task: {removed_task}")
+    else:
+        print("Invalid task number")
 
 def main():
     while True:
@@ -36,6 +42,6 @@ def main():
         if choose_option == '3':
             view_tasks()
             task_number = int(input('Enter task number to remove: '))
-            remove_task()
+            remove_tasks(task_number)
 
 main()
