@@ -18,19 +18,22 @@ def add_task():
         task = input("Enter your task: (or press enter to return to main menu) \n")
         if task == "":
             break
-    print("Adding task to list...")
-    tasks.append(task)
-    save_tasks()
-    print(f"New task Added: {task}")
+        tasks.append(task)
+        save_tasks()
+        print("Adding task to list...")
+        print(f"New task Added: {task}")
+
 
 
 def view_tasks():
-    if not tasks:
-        print("You have no current tasks.")
-    else:
-        print("Your current tasks: ")
-        for idx, task in enumerate(tasks, 1):
-            print(f"{idx}. {task}")
+    while True:
+        clear_screen()
+        if not tasks:
+            print("You have no current tasks.")
+        else:
+            print("Your current tasks: ")
+            for idx, task in enumerate(tasks, 1):
+                print(f"{idx}. {task}")
 
 def remove_tasks(task_number):
     if 0 < task_number <= len(tasks):
