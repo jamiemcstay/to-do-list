@@ -12,6 +12,7 @@ def show_options():
 def add_task(task):
     print("Adding task to list")
     tasks.append(task)
+    save_tasks()
     print(f"New task Added: {task}")
     print(f"Your tasks are: {tasks}")
 
@@ -26,9 +27,14 @@ def view_tasks():
 def remove_tasks(task_number):
     if 0 < task_number <= len(tasks):
         removed_task = tasks.pop(task_number - 1)
+        save_tasks()
         print(f"Removed task: {removed_task}")
     else:
         print("Invalid task number")
+
+def save_tasks():
+    with open(filename, 'w') as file:
+        json.dump(tasks, file)
 
 def main():
     while True:
