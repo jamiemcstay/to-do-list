@@ -44,16 +44,16 @@ def clear_screen():
 def main():
     while True:
         show_options()
-        choose_option = input("Choose an option: ")
+        choose_option = input("Choose an option: \n")
         clear_screen()
         if choose_option == '1':
-            task = input("Enter your task: ")
+            task = input("Enter your task: \n")
             add_task(task)
         if choose_option == '2':
             view_tasks()
         if choose_option == '3':
             view_tasks()
-            task_number = int(input('Enter task number to remove: '))
+            task_number = int(input('Enter task number to remove: \n'))
             remove_tasks(task_number)
 
 main()
