@@ -5,10 +5,12 @@ tasks = []
 filename = "tasks.json"
 
 def show_options():
-    print("ToDo List")
+    print("Welcome t your ToDo List")
+    print("Please choose weather to add, view, or remove completed tasks")
     print("1.Add a task")
     print("2.View tasks")
     print("3.Remove tasks")
+    print('\n')
 
 def add_task(task):
     print("Adding task to list...")
