@@ -26,14 +26,15 @@ def add_task():
 
 
 def view_tasks():
-    while True:
-        clear_screen()
-        if not tasks:
-            print("You have no current tasks.")
-        else:
-            print("Your current tasks: ")
-            for idx, task in enumerate(tasks, 1):
-                print(f"{idx}. {task}")
+    clear_screen()
+
+    if not tasks:
+        print("You have no current tasks.")
+    else:
+        print("Your current tasks are: ")
+        for idx, task in enumerate(tasks, 1):
+            print(f"{idx}. {task}")
+    input("\nPress Enter to return to main menu...")
 
 def remove_tasks(task_number):
     if 0 < task_number <= len(tasks):
@@ -58,11 +59,13 @@ def return_to_options():
 
 def main():
     while True:
+        clear_screen()
         print("\n")
         print("Welcome to your ToDo List")
         show_options()
         choose_option = input("Choose an option: \n")
         if choose_option == '1':
+            clear_screen()
             add_task()
         if choose_option == '2':
             view_tasks()
