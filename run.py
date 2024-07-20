@@ -10,6 +10,7 @@ def show_options():
     print("1.Add a task")
     print("2.View tasks")
     print("3.Remove tasks")
+    print("")
     print('\n')
 
 def add_task(task):
@@ -17,7 +18,9 @@ def add_task(task):
     tasks.append(task)
     save_tasks()
     print(f"New task Added: {task}")
-    clear_screen()
+    task = input("Enter your task: \n")
+    return_to_options()
+
 
 def view_tasks():
     if not tasks:
@@ -41,6 +44,11 @@ def save_tasks():
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
+
+def return_to_options():
+    input("\nPress Enter to return to main menu...")
+    clear_screen()
+    show_options()
 
 
 def main():
