@@ -5,7 +5,6 @@ tasks = []
 filename = "tasks.json"
 
 def show_options():
-    print("Welcome t your ToDo List")
     print("Please choose weather to add, view, or remove completed tasks")
     print("1.Add a task")
     print("2.View tasks")
@@ -45,6 +44,8 @@ def clear_screen():
 
 def main():
     while True:
+        print("\n")
+        print("Welcome to your ToDo List")
         show_options()
         choose_option = input("Choose an option: \n")
         clear_screen()
