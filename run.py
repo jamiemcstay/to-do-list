@@ -11,11 +11,11 @@ def show_options():
     print("3.Remove tasks")
 
 def add_task(task):
-    print("Adding task to list")
+    print("Adding task to list...")
     tasks.append(task)
     save_tasks()
     print(f"New task Added: {task}")
-    print(f"Your tasks are: {tasks}")
+    clear_screen()
 
 def view_tasks():
     if not tasks:
