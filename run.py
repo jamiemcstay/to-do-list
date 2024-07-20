@@ -13,13 +13,15 @@ def show_options():
     print("")
     print('\n')
 
-def add_task(task):
+def add_task():
+    while True:
+        task = input("Enter your task: (or press enter to return to main menu) \n")
+        if task == "":
+            break
     print("Adding task to list...")
     tasks.append(task)
     save_tasks()
     print(f"New task Added: {task}")
-    task = input("Enter your task: \n")
-    return_to_options()
 
 
 def view_tasks():
@@ -58,8 +60,7 @@ def main():
         show_options()
         choose_option = input("Choose an option: \n")
         if choose_option == '1':
-            task = input("Enter your task: \n")
-            add_task(task)
+            add_task()
         if choose_option == '2':
             view_tasks()
         if choose_option == '3':
