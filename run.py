@@ -1,4 +1,5 @@
 import json
+import os
 
 tasks = []
 filename = "tasks.json"
@@ -36,10 +37,15 @@ def save_tasks():
     with open(filename, 'w') as file:
         json.dump(tasks, file)
 
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
 def main():
     while True:
         show_options()
         choose_option = input("Choose an option: ")
+        clear_screen()
         if choose_option == '1':
             task = input("Enter your task: ")
             add_task(task)

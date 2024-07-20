@@ -1,5 +1,8 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
+https://blogboard.io/blog/knowledge/how-to-write-a-list-to-a-file-in-python/
+https://www.geeksforgeeks.org/clear-screen-python/
+
 Welcome,
 
 This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **May 14, 2024**
