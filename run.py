@@ -36,13 +36,30 @@ def view_tasks():
             print(f"{idx}. {task}")
     input("\nPress Enter to return to main menu...")
 
-def remove_tasks(task_number):
-    if 0 < task_number <= len(tasks):
-        removed_task = tasks.pop(task_number - 1)
-        save_tasks()
-        print(f"Removed task: {removed_task}")
-    else:
-        print("Invalid task number")
+def remove_tasks():
+    while True:
+        clear_screen()
+        if not tasks:
+            print("You have no current tasks.")
+        else:
+            print("Your current tasks: ")
+            for idx, task in enumerate(tasks, 1):
+                print(f"{idx}. {task}")
+        task_number = input('Enter completed task number to remove from list(or press Enter to return to main menu...)\n')
+        if task_number == "":
+            break
+        try:
+            task_number = int(task_number)
+            if 0 < task_number <= len(tasks):
+                removed_task = tasks.pop(task_number -1)
+                save_tasks()
+                print("Removing task..")
+                print(f"Removed task: {removed_task}")
+            else:
+                print("Invalid task number")
+        except ValueError:
+            print("Please enter a valid number.")
+        input("\nPress Enter to continue...")
 
 def save_tasks():
     with open(filename, 'w') as file:
@@ -70,8 +87,6 @@ def main():
         if choose_option == '2':
             view_tasks()
         if choose_option == '3':
-            view_tasks()
-            task_number = int(input('Enter task number to remove: \n'))
-            remove_tasks(task_number)
+            remove_tasks()
 
 main()
