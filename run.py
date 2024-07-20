@@ -6,6 +6,7 @@ filename = "tasks.json"
 
 def show_options():
     print("Please choose weather to add, view, or remove completed tasks")
+    print("\n")
     print("1.Add a task")
     print("2.View tasks")
     print("3.Remove tasks")
@@ -48,7 +49,6 @@ def main():
         print("Welcome to your ToDo List")
         show_options()
         choose_option = input("Choose an option: \n")
-        clear_screen()
         if choose_option == '1':
             task = input("Enter your task: \n")
             add_task(task)
