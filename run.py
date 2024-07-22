@@ -10,6 +10,7 @@ def show_options():
     print("1.Add a task")
     print("2.View tasks")
     print("3.Remove tasks")
+    print("4.Mark Tasks Complete")
     print("")
     print('\n')
 
@@ -121,6 +122,41 @@ def load_tasks():
             return json.load(file)
     return []
 
+def mark_task_complete():
+    while True:
+        clear_screen()
+        print('Mark your completed tasks')
+        print("Press 'm' to return to main menu")
+
+        if not tasks:
+            print('You have no current tasks.')
+            user_input = input("\n").strip().lower()
+            if user_input == 'm':
+                break
+        else:
+            print('Your current tasks: ')
+            for idx, task in enumerate(tasks, 1):
+                print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}") 
+                status = 'Completed' if task.get('Completed') else 'Incomplete'
+
+            task_number = input("\nEnter task number to mark as complete")
+
+            if task_number == 'm':
+                break
+
+            if task_number == "":
+                continue
+
+            try:
+                task_number = int(task_number)
+                if 0 < task_number <= len(tasks):
+                    tasks[task_number -1]['Completed'] = True
+                    save_tasks()
+                    clear_screen()
+                    print("Press 'm' to return to main menu\n")
+                    print("Marking tasks as completed...")
+                    task = tasks[task_number - 1]
+                    
 def main():
     global tasks
     tasks = load_tasks()
@@ -137,6 +173,8 @@ def main():
             view_tasks()
         elif choose_option == '3':
             remove_tasks()
+        elif choose_option == '4':
+            mark_task_complete()
         else:
             print("Invalid menu option. Please choose again.")
 
