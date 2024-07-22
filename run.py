@@ -81,29 +81,29 @@ def remove_tasks():
             for idx, task in enumerate(tasks, 1):
                 print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}")
                 
-                task_number = input('Enter task you want to remove from To Do List\n')
+            task_number = input('Enter task you want to remove from To Do List\n')
                 
-                if task_number == 'm':
+            if task_number == 'm':
                     break
 
-                if task_number == "":
+            if task_number == "":
                     continue
 
-                try:
-                    task_number = int(task_number)
-                    if 0 < task_number <= len(tasks):
-                        removed_task = tasks.pop(task_number -1)
-                        save_tasks()
-                        clear_screen()
-                        print("Press 'm' to return to main menu\n")
-                        print("Removing task..")
-                        print(f"Task Removed: Task: {removed_task['Task']}, Due Date: {removed_task['Due Date']}, Priority: {removed_task['Priority']}")
-                    else:
-                        print("Invalid task number")
-                except ValueError:
-                    print("Please enter a valid number.")
+            try:
+                task_number = int(task_number)
+                if 0 < task_number <= len(tasks):
+                    removed_task = tasks.pop(task_number -1)
+                    save_tasks()
+                    clear_screen()
+                    print("Press 'm' to return to main menu\n")
+                    print("Removing task..")
+                    print(f"Task Removed: Task: {removed_task['Task']}, Due Date: {removed_task['Due Date']}, Priority: {removed_task['Priority']}")
+                else:
+                    print("Invalid task number")
+            except ValueError:
+                print("Please enter a valid number.")
 
-                input("Press Enter to continue\n")
+            input("Press Enter to continue\n")
 
 def save_tasks():
     with open(filename, 'w') as file:
