@@ -50,17 +50,21 @@ def add_task():
             break
 
 
-
 def view_tasks():
     clear_screen()
+    print("Press 'm to return to main menu\n")
 
     if not tasks:
         print("You have no current tasks.")
     else:
         print("Your current tasks are: ")
         for idx, task in enumerate(tasks, 1):
-            print(f"{idx}. {task}")
-    input("\nPress Enter to return to main menu...")
+            print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}")
+
+    while True:
+        user_input = input("\n").strip().lower()
+        if user_input == 'm':
+            break
 
 def remove_tasks():
     while True:
@@ -94,10 +98,10 @@ def save_tasks():
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-def return_to_options():
-    input("\nPress Enter to return to main menu...")
-    clear_screen()
-    show_options()
+# def return_to_options():
+#     input("\nPress Enter to return to main menu...")
+#     clear_screen()
+#     show_options()
 
 
 def main():
@@ -110,9 +114,11 @@ def main():
         if choose_option == '1':
             clear_screen()
             add_task()
-        if choose_option == '2':
+        elif choose_option == '2':
             view_tasks()
-        if choose_option == '3':
+        elif choose_option == '3':
             remove_tasks()
+        else:
+            print("Invalid menu option. Please choose again.")
 
 main()
