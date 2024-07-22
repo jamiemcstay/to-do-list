@@ -79,7 +79,7 @@ def remove_tasks():
         else:
             print("Your current tasks: ")
             for idx, task in enumerate(tasks, 1):
-                print(f"{idx}. Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}")
+                print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}")
                 
                 task_number = input('Enter task you want to remove from To Do List\n')
                 
@@ -97,7 +97,7 @@ def remove_tasks():
                         clear_screen()
                         print("Press 'm' to return to main menu\n")
                         print("Removing task..")
-                        print(f"Removed task: Task: {removed_task['Task']}, Due Date: {removed_task['Due Date']}, Priority: {removed_task['Priority']}")
+                        print(f"Task Removed: Task: {removed_task['Task']}, Due Date: {removed_task['Due Date']}, Priority: {removed_task['Priority']}")
                     else:
                         print("Invalid task number")
                 except ValueError:
@@ -112,9 +112,14 @@ def save_tasks():
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-
+def load_tasks():
+    if os.path.exists(filename):
+        with open(+ilename, 'r') as file:
+            return jason.load(file)
+    return []
 
 def main():
+    global tasks
     while True:
         clear_screen()
         print("\n")
