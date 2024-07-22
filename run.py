@@ -115,13 +115,13 @@ def clear_screen():
 
 def load_tasks():
     if os.path.exists(filename):
-        with open(+ilename, 'r') as file:
-            return jason.load(file)
+        with open(filename, 'r') as file:
+            return json.load(file)
     return []
 
 def main():
     global tasks
-    tasks = load_task()
+    tasks = load_tasks()
     while True:
         clear_screen()
         print("\n")
