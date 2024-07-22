@@ -29,11 +29,11 @@ def add_task():
 
 
         due_date = input('\nEnter due date (YYYY-MM-DD): \n')
-        priority = input('Enter priority level (low, medium, high): \n')
+        priority = input('\nEnter priority level (low, medium, high): \n')
 
         task = {
             "Task": task_des,
-            "Due date": due_date,
+            "Due Date": due_date,
             "Priority": priority
         }
 
@@ -42,8 +42,8 @@ def add_task():
 
         clear_screen()
         print("Press 'm' to return to main menu\n")
-        print("\nAdding task to list...")
-        print(f"New task Added: {task}\n")
+        print("Adding task to list...\n")
+        print(f"New task Added: \nTask: {task['Task']}, \nDue Date: {task['Due Date']}, \nPriority: {task['Priority']}\n")
 
         user_input = input("Press Enter to add another task \n")
         if user_input.lower() == 'm':
