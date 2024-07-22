@@ -36,7 +36,8 @@ def add_task():
         task = {
             "Task": task_des,
             "Due Date": due_date,
-            "Priority": priority
+            "Priority": priority,
+            "Completed": False
         }
 
         tasks.append(task)
@@ -136,12 +137,12 @@ def mark_task_complete():
         else:
             print('Your current tasks: ')
             for idx, task in enumerate(tasks, 1):
-                print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}") 
                 status = 'Completed' if task.get('Completed') else 'Incomplete'
+                print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}") 
 
             task_number = input("\nEnter task number to mark as complete")
 
-            if task_number == 'm':
+            if task_number.lower() == 'm':
                 break
 
             if task_number == "":
@@ -150,13 +151,21 @@ def mark_task_complete():
             try:
                 task_number = int(task_number)
                 if 0 < task_number <= len(tasks):
-                    tasks[task_number -1]['Completed'] = True
+                    task = tasks[task_number - 1]
+
+                    task['Completed'] = True
                     save_tasks()
                     clear_screen()
                     print("Press 'm' to return to main menu\n")
-                    print("Marking tasks as completed...")
-                    task = tasks[task_number - 1]
-                    
+                    print("Marking task as completed...")
+                    print(f"Task marked as completed: Task: {task['Task']}")
+                else:
+                    print("Invalid task number")
+
+            except ValueError:
+                print('Please enter a valid number')
+
+
 def main():
     global tasks
     tasks = load_tasks()
