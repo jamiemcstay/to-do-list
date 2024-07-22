@@ -21,16 +21,15 @@ def add_task():
         due_date = input('Enter due date (YYYY-MM-DD): \n')
         priority = input('Enter priority level (low, medium, high): \n')
         task = {
-            "Description: task_des",
-            "Due date: due_date",
-            "Priority: priority"
+            "Description": task_des,
+            "Due date": due_date,
+            "Priority": priority
         }
-
         tasks.append(task)
         save_tasks()
         print("Adding task to list...")
         print(f"New task Added: {task}")
-    print('Press Enter to return to main menu')
+        if
 
 
 
@@ -72,7 +71,7 @@ def remove_tasks():
 
 def save_tasks():
     with open(filename, 'w') as file:
-        json.dump(tasks, file)
+        json.dump({'Tasks': tasks}, file)
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -98,4 +97,4 @@ def main():
         if choose_option == '3':
             remove_tasks()
 
-add_task()
+main()
