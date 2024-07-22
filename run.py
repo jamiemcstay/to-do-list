@@ -121,6 +121,7 @@ def load_tasks():
 
 def main():
     global tasks
+    tasks = load_task()
     while True:
         clear_screen()
         print("\n")
