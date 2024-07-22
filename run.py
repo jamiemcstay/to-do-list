@@ -69,39 +69,49 @@ def view_tasks():
 def remove_tasks():
     while True:
         clear_screen()
+        print("Press 'm to return to main menu\n")
+
         if not tasks:
             print("You have no current tasks.")
+            user_input = input("\n").strip().lower()
+            if user_input == 'm':
+                break
         else:
             print("Your current tasks: ")
             for idx, task in enumerate(tasks, 1):
-                print(f"{idx}. {task}")
-        task_number = input('Enter completed task number to remove from list(or press Enter to return to main menu...)\n')
-        if task_number == "":
-            break
-        try:
-            task_number = int(task_number)
-            if 0 < task_number <= len(tasks):
-                removed_task = tasks.pop(task_number -1)
-                save_tasks()
-                print("Removing task..")
-                print(f"Removed task: {removed_task}")
-            else:
-                print("Invalid task number")
-        except ValueError:
-            print("Please enter a valid number.")
-        input("\nPress Enter to continue...")
+                print(f"{idx}. Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}")
+                
+                task_number = input('Enter task you want to remove from To Do List\n')
+                
+                if task_number == 'm':
+                    break
+
+                if task_number == "":
+                    continue
+
+                try:
+                    task_number = int(task_number)
+                    if 0 < task_number <= len(tasks):
+                        removed_task = tasks.pop(task_number -1)
+                        save_tasks()
+                        clear_screen()
+                        print("Press 'm' to return to main menu\n")
+                        print("Removing task..")
+                        print(f"Removed task: Task: {removed_task['Task']}, Due Date: {removed_task['Due Date']}, Priority: {removed_task['Priority']}")
+                    else:
+                        print("Invalid task number")
+                except ValueError:
+                    print("Please enter a valid number.")
+
+                input("Press Enter to continue\n")
 
 def save_tasks():
     with open(filename, 'w') as file:
-        json.dump({'Tasks': tasks}, file)
+        json.dump(tasks, file)
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-# def return_to_options():
-#     input("\nPress Enter to return to main menu...")
-#     clear_screen()
-#     show_options()
 
 
 def main():
