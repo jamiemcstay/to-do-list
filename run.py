@@ -69,6 +69,7 @@ def view_tasks():
 def remove_tasks():
     while True:
         clear_screen()
+        print('Remove Tasks')
         print("Press 'm to return to main menu\n")
 
         if not tasks:
@@ -81,7 +82,7 @@ def remove_tasks():
             for idx, task in enumerate(tasks, 1):
                 print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}")
                 
-            task_number = input('Enter task you want to remove from To Do List\n')
+            task_number = input('\nEnter task you want to remove from To Do List\n')
                 
             if task_number == 'm':
                     break
@@ -97,7 +98,7 @@ def remove_tasks():
                     clear_screen()
                     print("Press 'm' to return to main menu\n")
                     print("Removing task..")
-                    print(f"Task Removed: Task: {removed_task['Task']}, Due Date: {removed_task['Due Date']}, Priority: {removed_task['Priority']}")
+                    print(f"Task Removed: Task: {removed_task['Task']}, Due Date: {removed_task['Due Date']}, Priority: {removed_task['Priority']}\n")
                 else:
                     print("Invalid task number")
             except ValueError:
