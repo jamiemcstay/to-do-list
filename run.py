@@ -16,6 +16,7 @@ def show_options():
 def add_task():
     while True:
         clear_screen()
+        print('Add New Tasks')
         print("Press 'm' to return to main menu\n")
 
         task_des = input("Add new task: \n")
@@ -52,6 +53,7 @@ def add_task():
 
 def view_tasks():
     clear_screen()
+    print('View your tasks')
     print("Press 'm to return to main menu\n")
 
     if not tasks:
