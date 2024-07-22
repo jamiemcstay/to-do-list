@@ -15,13 +15,19 @@ def show_options():
 
 def add_task():
     while True:
-        task_des = input("Enter your task: \n")
-        if task_des == "":
+        print("\nPress 'm' to return to main menu\n")
+        task_des = input("Enter your task: ")
+        if task_des == "m":
             break
+        
+        if task_des == "":
+            print("\nPress 'm' to return to main menu or continue adding tasks: ")
+            continue
+
         due_date = input('Enter due date (YYYY-MM-DD): \n')
         priority = input('Enter priority level (low, medium, high): \n')
         task = {
-            "Description": task_des,
+            "Task": task_des,
             "Due date": due_date,
             "Priority": priority
         }
@@ -29,7 +35,6 @@ def add_task():
         save_tasks()
         print("Adding task to list...")
         print(f"New task Added: {task}")
-        if
 
 
 
