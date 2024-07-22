@@ -140,7 +140,7 @@ def mark_task_complete():
                 status = 'Completed' if task.get('Completed') else 'Incomplete'
                 print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}") 
 
-            task_number = input("\nEnter task number to mark as complete")
+            task_number = input("\nEnter task number to mark as complete\n")
 
             if task_number.lower() == 'm':
                 break
@@ -152,12 +152,11 @@ def mark_task_complete():
                 task_number = int(task_number)
                 if 0 < task_number <= len(tasks):
                     task = tasks[task_number - 1]
-
+                    print("Press 'm' to return to main menu\n")
+                    print("Marking task as completed...")
                     task['Completed'] = True
                     save_tasks()
                     clear_screen()
-                    print("Press 'm' to return to main menu\n")
-                    print("Marking task as completed...")
                     print(f"Task marked as completed: Task: {task['Task']}")
                 else:
                     print("Invalid task number")
