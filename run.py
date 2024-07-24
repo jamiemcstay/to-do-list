@@ -117,6 +117,9 @@ def view_tasks():
             break
 
 def remove_tasks():
+    """
+    Prompts the user to enter number of task to remove from To Do list.
+    """
     while True:
         clear_screen()
         print('Remove Tasks')
@@ -131,7 +134,8 @@ def remove_tasks():
         else:
             print("Your current tasks: ")
             for idx, task in enumerate(tasks, 1):
-                print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}")
+                status = 'Complete' if task['Status'] else 'Incomplete'
+                print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}, Status: {status}")
                 
             task_number = input('\nEnter task you want to remove from To Do List\n')
                 
@@ -158,19 +162,33 @@ def remove_tasks():
                 input("Press Enter to try again.")
 
 def save_tasks():
+    """
+    Saves the current list of tasks to a json file. 
+    """
     with open(filename, 'w') as file:
         json.dump(tasks, file)
 
 def clear_screen():
+    """
+    Clears the terminal screen. 
+    """
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def load_tasks():
+    """
+    Loads taks from the json file into the task list.
+    Returns list of tasks from the json file is they exist, and an empty list if file doesnt exist. 
+    """
     if os.path.exists(filename):
         with open(filename, 'r') as file:
             return json.load(file)
     return []
 
 def mark_task_complete():
+    """
+    Prompts the user to mark a specific task as complete.
+    Updates the task status to 'Complete' and saves updated tasks. 
+    """
     clear_screen()
     while True:
         print('Mark your completed tasks')
@@ -224,6 +242,10 @@ def mark_task_complete():
 
 
 def main():
+    """
+    Main function to run the To Do List application.
+    Displays main menu options, and handles user input to perform actions within menu items.  
+    """
     global tasks
     tasks = load_tasks()
     while True:
