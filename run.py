@@ -48,8 +48,12 @@ def add_task():
             if task_des == "":
                 continue
 
-
-        priority = input('\nEnter priority level (low, medium, high): \n')
+        while True:
+            priority = input('\nEnter priority level (low, medium, high): \n').strip().lower()
+            if priority in ['low', 'medium', 'high']:
+                break
+            print("\nInvalid priority level. Please type, 'low', 'medium', 'high'")
+            input("Press Enter to try again\n")
 
         task = {
             "Task": task_des,
