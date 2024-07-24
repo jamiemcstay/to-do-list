@@ -5,6 +5,30 @@ import re
 tasks = []
 filename = "tasks.json"
 
+def save_tasks():
+    """
+    Saves the current list of tasks to a json file. 
+    """
+    with open(filename, 'w') as file:
+        json.dump(tasks, file)
+
+def clear_screen():
+    """
+    Clears the terminal screen. 
+    """
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def load_tasks():
+    """
+    Loads taks from the json file into the task list.
+    Returns list of tasks from the json file is they exist, and an empty list if file doesnt exist. 
+    """
+    if os.path.exists(filename):
+        with open(filename, 'r') as file:
+            return json.load(file)
+    return []
+
+
 def show_options():
     """
     Displays the menu options for managing the To Do List. 
@@ -25,7 +49,7 @@ def add_task():
     """
     while True:
         clear_screen()
-        print('Add New Tasks')
+        print_heading("ADD NEW TASKS")
         print("Press 'm' to return to main menu\n")
 
         task_des = input("Add new task: \n")
@@ -41,9 +65,10 @@ def add_task():
 
         while True:
             clear_screen()
-            print('Add New Tasks')
+            print_heading("ADD NEW TASKS")
             print("Press 'm' to return to main menu\n")  
-            print(f"Task added: {task_des}\n")         
+            print(f"Task added: {task_des}\n")
+                     
             due_date = input('\nEnter due date (YYYY-MM-DD): \n')
             date_pattern = (r'^\d{4}-\d{2}-\d{2}$')   
             if re.match(date_pattern, due_date):
@@ -62,7 +87,7 @@ def add_task():
 
         while True:
             clear_screen()
-            print('Add New Tasks')
+            print_heading("ADD NEW TASKS")
             print("Press 'm' to return to main menu\n")  
             print(f"Task added: {task_des}")
             print(f"Due Date: {due_date}\n")
@@ -83,7 +108,7 @@ def add_task():
         save_tasks()
 
         clear_screen()
-        print("ADD NEW TASKS")
+        print_heading("ADD NEW TASKS")
         print("Press 'm' to return to main menu\n")
         print("Adding task to list...\n")
         print(f"New task Added: {task['Task']}, \nDue Date: {task['Due Date']}, \nPriority: {task['Priority']}\n")
@@ -93,36 +118,13 @@ def add_task():
             clear_screen()
             break
 
-
-def view_tasks():
-    """
-    Displays all tasks with their description, due date, priority level, and status. 
-    """
-    clear_screen()
-    print('View your tasks')
-    print("Press 'm to return to main menu\n")
-
-    if not tasks:
-        print("You have no current tasks.")
-    else:
-        print("Your current tasks are: ")
-        for idx, task in enumerate(tasks, 1):
-            status = 'Complete' if task['Status'] else 'Incomplete'
-            print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}, Status: {status}")
-
-    while True:
-        user_input = input("\n").strip().lower()
-        if user_input == 'm':
-            clear_screen()
-            break
-
 def remove_tasks():
     """
     Prompts the user to enter number of task to remove from To Do list.
     """
     while True:
         clear_screen()
-        print('Remove Tasks')
+        print('REMOVE TASKS')
         print("Press 'm to return to main menu\n")
 
         if not tasks:
@@ -161,28 +163,29 @@ def remove_tasks():
                 print("\nPlease enter a valid task number.")
                 input("Press Enter to try again.")
 
-def save_tasks():
-    """
-    Saves the current list of tasks to a json file. 
-    """
-    with open(filename, 'w') as file:
-        json.dump(tasks, file)
 
-def clear_screen():
+def view_tasks():
     """
-    Clears the terminal screen. 
+    Displays all tasks with their description, due date, priority level, and status. 
     """
-    os.system('cls' if os.name == 'nt' else 'clear')
+    clear_screen()
+    print('VIEW YOUR TASKS')
+    print("Press 'm to return to main menu\n")
 
-def load_tasks():
-    """
-    Loads taks from the json file into the task list.
-    Returns list of tasks from the json file is they exist, and an empty list if file doesnt exist. 
-    """
-    if os.path.exists(filename):
-        with open(filename, 'r') as file:
-            return json.load(file)
-    return []
+    if not tasks:
+        print("You have no current tasks.")
+    else:
+        print("Your current tasks are: ")
+        for idx, task in enumerate(tasks, 1):
+            status = 'Complete' if task['Status'] else 'Incomplete'
+            print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}, Status: {status}")
+
+    while True:
+        user_input = input("\n").strip().lower()
+        if user_input == 'm':
+            clear_screen()
+            break
+
 
 def mark_task_complete():
     """
@@ -191,7 +194,7 @@ def mark_task_complete():
     """
     clear_screen()
     while True:
-        print('Mark your completed tasks')
+        print('MARK TASKS COMPLETE')
         print("Press 'm' to return to main menu")
 
         if not tasks:
@@ -240,6 +243,33 @@ def mark_task_complete():
                 input('Press Enter to try again.')
                 clear_screen()
 
+def print_heading(heading):
+
+    ascii_art = {
+        "TO DO LIST": r"""
+  _______ ____    _____   ____    _      _____  _____ _______ 
+ |__   __/ __ \  |  __ \ / __ \  | |    |_   _|/ ____|__   __|
+    | | | |  | | | |  | | |  | | | |      | | | (___    | |   
+    | | | |  | | | |  | | |  | | | |      | |  \___ \   | |   
+    | | | |__| | | |__| | |__| | | |____ _| |_ ____) |  | |   
+    |_|  \____/  |_____/ \____/  |______|_____|_____/   |_|   
+    """,
+    
+
+        "ADD NEW TASKS": r"""
+           _____  _____    _   _ ________          __  _______        _____ _  __ _____ 
+     /\   |  __ \|  __ \  | \ | |  ____\ \        / / |__   __|/\    / ____| |/ // ____|
+    /  \  | |  | | |  | | |  \| | |__   \ \  /\  / /     | |  /  \  | (___ | ' /| (___  
+   / /\ \ | |  | | |  | | | . ` |  __|   \ \/  \/ /      | | / /\ \  \___ \|  <  \___ \ 
+  / ____ \| |__| | |__| | | |\  | |____   \  /\  /       | |/ ____ \ ____) | . \ ____) |
+ /_/    \_\_____/|_____/  |_| \_|______|   \/  \/        |_/_/    \_\_____/|_|\_\_____/                                                                                      
+    """
+
+    }
+
+    print(ascii_art.get(heading, heading))
+    print("\n")
+
 
 def main():
     """
@@ -250,7 +280,8 @@ def main():
     tasks = load_tasks()
     while True:
         print("\n")
-        print("Welcome to your ToDo List")
+        print_heading("TO DO LIST")
+        # print("ToDo List")
         show_options()
         choose_option = input("Choose an option: \n")
         if choose_option == '1':
