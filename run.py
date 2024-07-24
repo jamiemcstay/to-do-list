@@ -69,7 +69,7 @@ def add_task():
             "Task": task_des,
             "Due Date": due_date,
             "Priority": priority,
-            "Completed": False
+            "Status": False
         }
 
         tasks.append(task)
@@ -169,6 +169,7 @@ def mark_task_complete():
             print('\nYou have no current tasks.')
             user_input = input("\n").strip().lower()
             if user_input == 'm':
+                clear_screen()
                 break
         else:
             print('\nYour current tasks: ')
@@ -189,12 +190,12 @@ def mark_task_complete():
                 task_number = int(task_number)
                 if 0 < task_number <= len(tasks):
                     task = tasks[task_number - 1]
-                    clear_screen()
-                    print("Press 'm' to return to main menu\n")
-                    print("Marking task as completed...")
+                    # clear_screen()
+                    # print("Press 'm' to return to main menu\n")
+                    print("\nMarking task as completed...")
                     task['Completed'] = True
                     save_tasks()
-                    print(f"Task marked as completed: Task: {task['Task']}")
+                    print(f"Task marked as completed: Task: {task['Task']}\n")
                     input('Press Enter to continue')
                     clear_screen()
                 else:
