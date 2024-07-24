@@ -174,8 +174,8 @@ def mark_task_complete():
         else:
             print('\nYour current tasks:')
             for idx, task in enumerate(tasks, 1):
-                status = 'Completed' if task.get('Completed') else 'Incomplete'
-                print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}") 
+                status = 'Complete' if task['Status'] else 'Incomplete'
+                print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}, Status: {status}") 
 
             task_number = input("\nEnter task number to mark as complete: \n")
 
@@ -190,15 +190,20 @@ def mark_task_complete():
                 task_number = int(task_number)
                 if 0 < task_number <= len(tasks):
                     task = tasks[task_number - 1]
-                    print("\nMarking task as completed...")
-                    task['Completed'] = True
-                    save_tasks()
-                    print(f"Task marked as completed: Task: {task['Task']}\n")
-                    input('Press Enter to continue')
-                    clear_screen()
+                    if task['Status']:
+                        print("\nThis task is already completed")
+                        input('Press Enter to continue\n')
+                        clear_screen()
+                    else:
+                        print("\nMarking task as completed...")
+                        task['Status'] = True
+                        save_tasks()
+                        print(f"Task complete: {task['Task']}\n")
+                        input('Press Enter to continue')
+                        clear_screen()
                 else:
                     print("\nInvalid task number")
-                    input('Press Enter to try again.')
+                    input('Press Enter to try again\n')
                     clear_screen()
 
             except ValueError:
