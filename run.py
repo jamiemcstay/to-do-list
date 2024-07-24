@@ -191,11 +191,11 @@ def mark_task_complete():
                 if 0 < task_number <= len(tasks):
                     task = tasks[task_number - 1]
                     if task['Status']:
-                        print("\nThis task is already completed")
+                        print("\nThis task is already complete...")
                         input('Press Enter to continue\n')
                         clear_screen()
                     else:
-                        print("\nMarking task as completed...")
+                        print("\nMarking task as complete...")
                         task['Status'] = True
                         save_tasks()
                         print(f"Task complete: {task['Task']}\n")
