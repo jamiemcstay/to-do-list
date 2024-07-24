@@ -104,6 +104,7 @@ def remove_tasks():
             print("You have no current tasks.")
             user_input = input("\n").strip().lower()
             if user_input == 'm':
+                clear_screen()
                 break
         else:
             print("Your current tasks: ")
@@ -113,6 +114,7 @@ def remove_tasks():
             task_number = input('\nEnter task you want to remove from To Do List\n')
                 
             if task_number == 'm':
+                    clear_screen()
                     break
 
             if task_number == "":
@@ -128,9 +130,9 @@ def remove_tasks():
                     print("Removing task..")
                     print(f"Task Removed: Task: {removed_task['Task']}, Due Date: {removed_task['Due Date']}, Priority: {removed_task['Priority']}\n")
                 else:
-                    print("Invalid task number")
+                    print("\nInvalid task number")
             except ValueError:
-                print("Please enter a valid number.")
+                print("\nPlease enter a valid task number.")
 
             input("Press Enter to continue\n")
 
@@ -148,25 +150,26 @@ def load_tasks():
     return []
 
 def mark_task_complete():
+    clear_screen()
     while True:
-        clear_screen()
         print('Mark your completed tasks')
         print("Press 'm' to return to main menu")
 
         if not tasks:
-            print('You have no current tasks.')
+            print('\nYou have no current tasks.')
             user_input = input("\n").strip().lower()
             if user_input == 'm':
                 break
         else:
-            print('Your current tasks: ')
+            print('\nYour current tasks: ')
             for idx, task in enumerate(tasks, 1):
                 status = 'Completed' if task.get('Completed') else 'Incomplete'
                 print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}") 
 
-            task_number = input("\nEnter task number to mark as complete\n")
+            task_number = input("\nEnter task number to mark as complete: \n")
 
             if task_number.lower() == 'm':
+                clear_screen()
                 break
 
             if task_number == "":
@@ -176,17 +179,23 @@ def mark_task_complete():
                 task_number = int(task_number)
                 if 0 < task_number <= len(tasks):
                     task = tasks[task_number - 1]
+                    clear_screen()
                     print("Press 'm' to return to main menu\n")
                     print("Marking task as completed...")
                     task['Completed'] = True
                     save_tasks()
-                    clear_screen()
                     print(f"Task marked as completed: Task: {task['Task']}")
+                    input('Press Enter to continue')
+                    clear_screen()
                 else:
-                    print("Invalid task number")
+                    print("\nInvalid task number")
+                    input('Press Enter to try again.')
+                    clear_screen()
 
             except ValueError:
-                print('Please enter a valid number')
+                print('\nPlease enter a valid number')
+                input('Press Enter to try again.')
+                clear_screen()
 
 
 def main():
