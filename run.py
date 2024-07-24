@@ -32,7 +32,11 @@ def add_task():
             input('Press Enter to try again')
             continue
 
-        while True:           
+        while True:
+            clear_screen()
+            print('Add New Tasks')
+            print("Press 'm' to return to main menu\n")  
+            print(f"Task added: {task_des}\n")         
             due_date = input('\nEnter due date (YYYY-MM-DD): \n')
             date_pattern = (r'^\d{4}-\d{2}-\d{2}$')   
             if re.match(date_pattern, due_date):
@@ -43,12 +47,18 @@ def add_task():
                     print("\nInvalid date format. Please enter the date in YYYY-MM-DD format.")
             else:
                 print('\nInvalid date format. Please enter the date in YYYY-MM-DD format.')
-                input('Press Enter to try again.')   
+            input('Press Enter to try again.')
+            clear_screen()  
 
             if task_des == "":
                 continue
 
         while True:
+            clear_screen()
+            print('Add New Tasks')
+            print("Press 'm' to return to main menu\n")  
+            print(f"Task added: {task_des}")
+            print(f"Due Date: {due_date}\n")
             priority = input('\nEnter priority level (low, medium, high): \n').strip().lower()
             if priority in ['low', 'medium', 'high']:
                 break
@@ -66,11 +76,12 @@ def add_task():
         save_tasks()
 
         clear_screen()
+        print("ADD NEW TASKS")
         print("Press 'm' to return to main menu\n")
         print("Adding task to list...\n")
-        print(f"New task Added: \nTask: {task['Task']}, \nDue Date: {task['Due Date']}, \nPriority: {task['Priority']}\n")
+        print(f"New task Added: {task['Task']}, \nDue Date: {task['Due Date']}, \nPriority: {task['Priority']}\n")
 
-        user_input = input("Press Enter to add another task \n")
+        user_input = input("Press Enter to continue \n")
         if user_input.lower() == 'm':
             clear_screen()
             break
@@ -123,18 +134,17 @@ def remove_tasks():
             try:
                 task_number = int(task_number)
                 if 0 < task_number <= len(tasks):
-                    removed_task = tasks.pop(task_number -1)
+                    removed_task = tasks.pop(task_number - 1)
                     save_tasks()
-                    clear_screen()
-                    print("Press 'm' to return to main menu\n")
-                    print("Removing task..")
+                    print("\nRemoving task..")
                     print(f"Task Removed: Task: {removed_task['Task']}, Due Date: {removed_task['Due Date']}, Priority: {removed_task['Priority']}\n")
+                    input("Press Enter to continue\n")
                 else:
                     print("\nInvalid task number")
+                    input("Press Enter to try again.")         
             except ValueError:
                 print("\nPlease enter a valid task number.")
-
-            input("Press Enter to continue\n")
+                input("Press Enter to try again.")
 
 def save_tasks():
     with open(filename, 'w') as file:
