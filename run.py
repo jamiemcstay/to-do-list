@@ -6,6 +6,9 @@ tasks = []
 filename = "tasks.json"
 
 def show_options():
+    """
+    Displays the menu options for managing the To Do List. 
+    """
     print("Choose a menu option to manage your To Do List")
     print("\n")
     print("1.Add a task")
@@ -16,6 +19,10 @@ def show_options():
     print('\n')
 
 def add_task():
+    """
+    Prompts the user to add a new task, including description , due date, and priority.
+    Ensures the due date is in the YYYY-MM-DD format and the priority is the correct string.
+    """
     while True:
         clear_screen()
         print('Add New Tasks')
@@ -88,6 +95,9 @@ def add_task():
 
 
 def view_tasks():
+    """
+    Displays all tasks with their description, due date, priority level, and status. 
+    """
     clear_screen()
     print('View your tasks')
     print("Press 'm to return to main menu\n")
@@ -97,7 +107,8 @@ def view_tasks():
     else:
         print("Your current tasks are: ")
         for idx, task in enumerate(tasks, 1):
-            print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}")
+            status = 'Complete' if task['Status'] else 'Incomplete'
+            print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}, Status: {status}")
 
     while True:
         user_input = input("\n").strip().lower()
