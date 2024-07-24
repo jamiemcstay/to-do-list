@@ -1,5 +1,6 @@
 import json
 import os
+import re
 
 tasks = []
 filename = "tasks.json"
@@ -23,6 +24,7 @@ def add_task():
         task_des = input("Add new task: \n")
 
         if task_des.lower() == 'm':
+            clear_screen()
             break
 
         if not task_des.strip():
@@ -30,12 +32,23 @@ def add_task():
             input('Press Enter to try again')
             continue
 
+        while True:           
+            due_date = input('\nEnter due date (YYYY-MM-DD): \n')
+            date_pattern = (r'^\d{4}-\d{2}-\d{2}$')   
+            if re.match(date_pattern, due_date):
+                try:
+                    year, month, day = map(int, due_date.split('-'))
+                    break
+                except ValueError:
+                    print("\nInvalid date format. Please enter the date in YYYY-MM-DD format.")
+            else:
+                print('\nInvalid date format. Please enter the date in YYYY-MM-DD format.')
+                input('Press Enter to try again.')   
 
-        if task_des == "":
-            continue
+            if task_des == "":
+                continue
 
 
-        due_date = input('\nEnter due date (YYYY-MM-DD): \n')
         priority = input('\nEnter priority level (low, medium, high): \n')
 
         task = {
