@@ -172,7 +172,7 @@ def mark_task_complete():
                 clear_screen()
                 break
         else:
-            print('\nYour current tasks: ')
+            print('\nYour current tasks:')
             for idx, task in enumerate(tasks, 1):
                 status = 'Completed' if task.get('Completed') else 'Incomplete'
                 print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}") 
@@ -190,8 +190,6 @@ def mark_task_complete():
                 task_number = int(task_number)
                 if 0 < task_number <= len(tasks):
                     task = tasks[task_number - 1]
-                    # clear_screen()
-                    # print("Press 'm' to return to main menu\n")
                     print("\nMarking task as completed...")
                     task['Completed'] = True
                     save_tasks()
