@@ -5,7 +5,7 @@ tasks = []
 filename = "tasks.json"
 
 def show_options():
-    print("Please choose weather to add, view, or remove completed tasks")
+    print("Choose a menu option to manage your To Do List")
     print("\n")
     print("1.Add a task")
     print("2.View tasks")
@@ -24,6 +24,11 @@ def add_task():
 
         if task_des.lower() == 'm':
             break
+
+        if not task_des.strip():
+            print('Task description cannot be empty')
+            input('Press Enter to try again')
+            continue
 
 
         if task_des == "":
@@ -50,6 +55,7 @@ def add_task():
 
         user_input = input("Press Enter to add another task \n")
         if user_input.lower() == 'm':
+            clear_screen()
             break
 
 
@@ -68,6 +74,7 @@ def view_tasks():
     while True:
         user_input = input("\n").strip().lower()
         if user_input == 'm':
+            clear_screen()
             break
 
 def remove_tasks():
@@ -169,7 +176,6 @@ def main():
     global tasks
     tasks = load_tasks()
     while True:
-        clear_screen()
         print("\n")
         print("Welcome to your ToDo List")
         show_options()
@@ -184,6 +190,8 @@ def main():
         elif choose_option == '4':
             mark_task_complete()
         else:
-            print("Invalid menu option. Please choose again.")
+            print("\nInvalid menu option.")
+            user_input = input('Press enter to choose again\n')
+            clear_screen()
 
 main()
