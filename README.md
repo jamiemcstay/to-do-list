@@ -24,7 +24,12 @@ https://www.geeksforgeeks.org/clear-screen-python/
 
 > For this project,  I aimed to create a simple command line To Do List application in Python. The Goal was to build a tool that helps users manage their tasks through a straightforward interface.
 
-I mapped out the applications flow in 
+I mapped out the applications flow in a diagram to understand the user interactions and task management logic required. This helped in structuring the project and identifying key features and functionalities. Please see below for flow diagram. 
+
+![Figjam Flow Diagram]()
+
+
+
 
 
 
