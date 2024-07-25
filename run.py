@@ -5,23 +5,28 @@ import re
 tasks = []
 filename = "tasks.json"
 
+
 def save_tasks():
     """
-    Saves the current list of tasks to a json file. 
+    Saves the current list of tasks to a json file.
     """
     with open(filename, 'w') as file:
         json.dump(tasks, file)
 
+
 def clear_screen():
+
     """
-    Clears the terminal screen. 
+    Clears the terminal screen.
     """
     os.system('cls' if os.name == 'nt' else 'clear')
+
 
 def load_tasks():
     """
     Loads taks from the json file into the task list.
-    Returns list of tasks from the json file is they exist, and an empty list if file doesnt exist. 
+    Returns list of tasks from the json file is they exist, and an empty list
+    if file doesnt exist.
     """
     if os.path.exists(filename):
         with open(filename, 'r') as file:
@@ -31,7 +36,7 @@ def load_tasks():
 
 def show_options():
     """
-    Displays the menu options for managing the To Do List. 
+    Displays the menu options for managing the To Do List.
     """
     print("Choose a menu option to manage your To Do List")
     print("\n")
@@ -42,10 +47,12 @@ def show_options():
     print("")
     print('\n')
 
+
 def add_task():
     """
-    Prompts the user to add a new task, including description , due date, and priority.
-    Ensures the due date is in the YYYY-MM-DD format and the priority is the correct string.
+    Prompts the user to add a new task, including description , due date,
+    and priority. Ensures the due date is in the YYYY-MM-DD format and
+    the priority is the correct string.
     """
     while True:
         clear_screen()
@@ -66,21 +73,23 @@ def add_task():
         while True:
             clear_screen()
             print_heading("ADD NEW TASKS")
-            print("Press 'm' to return to main menu\n")  
+            print("Press 'm' to return to main menu\n")
             print(f"Task added: {task_des}\n")
-                     
+
             due_date = input('\nEnter due date (YYYY-MM-DD): \n')
-            date_pattern = (r'^\d{4}-\d{2}-\d{2}$')   
+            date_pattern = (r'^\d{4}-\d{2}-\d{2}$')
             if re.match(date_pattern, due_date):
                 try:
                     year, month, day = map(int, due_date.split('-'))
                     break
                 except ValueError:
-                    print("\nInvalid date format. Please enter the date in YYYY-MM-DD format.")
+                    print("\nInvalid date format. Please enter the date in\
+                          YYYY-MM-DD format.")
             else:
-                print('\nInvalid date format. Please enter the date in YYYY-MM-DD format.')
+                print('\nInvalid date format. Please enter the date in\
+                      YYYY-MM-DD format.')
             input('Press Enter to try again.')
-            clear_screen()  
+            clear_screen()
 
             if task_des == "":
                 continue
@@ -88,13 +97,15 @@ def add_task():
         while True:
             clear_screen()
             print_heading("ADD NEW TASKS")
-            print("Press 'm' to return to main menu\n")  
+            print("Press 'm' to return to main menu\n")
             print(f"Task added: {task_des}")
             print(f"Due Date: {due_date}\n")
-            priority = input('\nEnter priority level (low, medium, high): \n').strip().lower()
+            priority = input('\nEnter priority level(low, medium, high):\n')\
+                .strip().lower()
             if priority in ['low', 'medium', 'high']:
                 break
-            print("\nInvalid priority level. Please type, 'low', 'medium', 'high'")
+            print("\nInvalid priority level. Please type, 'low', 'medium',\
+                  'high'")
             input("Press Enter to try again\n")
 
         task = {
@@ -111,12 +122,14 @@ def add_task():
         print_heading("ADD NEW TASKS")
         print("Press 'm' to return to main menu\n")
         print("Adding task to list...\n")
-        print(f"New task Added: {task['Task']}, \nDue Date: {task['Due Date']}, \nPriority: {task['Priority']}\n")
+        print(f"New task Added: {task['Task']},\nDue Date: {task['Due Date']}\
+        , Priority: {task['Priority']}\n")
 
         user_input = input("Press Enter to continue \n")
         if user_input.lower() == 'm':
             clear_screen()
             break
+
 
 def remove_tasks():
     """
@@ -137,16 +150,19 @@ def remove_tasks():
             print("Your current tasks: ")
             for idx, task in enumerate(tasks, 1):
                 status = 'Complete' if task['Status'] else 'Incomplete'
-                print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}, Status: {status}")
-                
-            task_number = input('\nEnter task you want to remove from To Do List\n')
-                
+                print(f"{idx}.  Task: {task['Task']}, Due Date:\
+                    {task['Due Date']}, Priority: {task['Priority']},\
+                     Status: {status}")
+
+            task_number = input('\nEnter task you want to remove from To Do\
+                                 List\n')
+
             if task_number == 'm':
-                    clear_screen()
-                    break
+                clear_screen()
+                break
 
             if task_number == "":
-                    continue
+                continue
 
             try:
                 task_number = int(task_number)
@@ -154,11 +170,13 @@ def remove_tasks():
                     removed_task = tasks.pop(task_number - 1)
                     save_tasks()
                     print("\nRemoving task..")
-                    print(f"Task Removed: Task: {removed_task['Task']}, Due Date: {removed_task['Due Date']}, Priority: {removed_task['Priority']}\n")
+                    print(f"Task Removed: Task: {removed_task['Task']},\
+                    Due Date: {removed_task['Due Date']}, Priority: \
+                    {removed_task['Priority']}\n")
                     input("Press Enter to continue\n")
                 else:
                     print("\nInvalid task number")
-                    input("Press Enter to try again.")         
+                    input("Press Enter to try again.")
             except ValueError:
                 print("\nPlease enter a valid task number.")
                 input("Press Enter to try again.")
@@ -166,7 +184,8 @@ def remove_tasks():
 
 def view_tasks():
     """
-    Displays all tasks with their description, due date, priority level, and status. 
+    Displays all tasks with their description, due date, priority level,\
+    and status.
     """
     clear_screen()
     print_heading('VIEW YOUR TASKS')
@@ -178,7 +197,8 @@ def view_tasks():
         print("Your current tasks are: ")
         for idx, task in enumerate(tasks, 1):
             status = 'Complete' if task['Status'] else 'Incomplete'
-            print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}, Status: {status}")
+            print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}\
+            , Priority: {task['Priority']}, Status: {status}")
 
     while True:
         user_input = input("\n").strip().lower()
@@ -190,7 +210,7 @@ def view_tasks():
 def mark_task_complete():
     """
     Prompts the user to mark a specific task as complete.
-    Updates the task status to 'Complete' and saves updated tasks. 
+    Updates the task status to 'Complete' and saves updated tasks.
     """
     clear_screen()
     while True:
@@ -207,7 +227,9 @@ def mark_task_complete():
             print('\nYour current tasks:')
             for idx, task in enumerate(tasks, 1):
                 status = 'Complete' if task['Status'] else 'Incomplete'
-                print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}, Priority: {task['Priority']}, Status: {status}") 
+                print(f"{idx}.  Task: {task['Task']}, Due Date:\
+                {task['Due Date']}, Priority: {task['Priority']}, Status:\
+                {status}")
 
             task_number = input("\nEnter task number to mark as complete: \n")
 
@@ -243,10 +265,12 @@ def mark_task_complete():
                 input('Press Enter to try again.')
                 clear_screen()
 
+
 def print_heading(heading):
 
     ascii_art = {
         "TO DO LIST": r"""
+
   _______ ____    _____   ____    _      _____  _____ _______ 
  |__   __/ __ \  |  __ \ / __ \  | |    |_   _|/ ____|__   __|
     | | | |  | | | |  | | |  | | | |      | | | (___    | |   
@@ -254,7 +278,7 @@ def print_heading(heading):
     | | | |__| | | |__| | |__| | | |____ _| |_ ____) |  | |   
     |_|  \____/  |_____/ \____/  |______|_____|_____/   |_|   
     """,
-    
+
 
         "ADD NEW TASKS": r"""
            _____  _____    _   _ ________          __  _______        _____ _  __ _____ 
@@ -301,7 +325,8 @@ def print_heading(heading):
 def main():
     """
     Main function to run the To Do List application.
-    Displays main menu options, and handles user input to perform actions within menu items.  
+    Displays main menu options, and handles user input to perform actions \
+    within menu items.
     """
     global tasks
     tasks = load_tasks()
@@ -324,5 +349,6 @@ def main():
             print("\nInvalid menu option.")
             user_input = input('Press enter to choose again\n')
             clear_screen()
+
 
 main()
