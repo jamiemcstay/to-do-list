@@ -73,7 +73,7 @@ def add_task():
         while True:
             clear_screen()
             print_heading("ADD NEW TASKS")
-            print("Press 'm' to return to main menu\n")
+            # print("Press 'm' to return to main menu\n")
             print(f"Task added: {task_des}\n")
 
             due_date = input('\nEnter due date (YYYY-MM-DD): \n')
@@ -97,7 +97,7 @@ def add_task():
         while True:
             clear_screen()
             print_heading("ADD NEW TASKS")
-            print("Press 'm' to return to main menu\n")
+            # print("Press 'm' to return to main menu\n")
             print(f"Task added: {task_des}")
             print(f"Due Date: {due_date}\n")
             priority = input('\nEnter priority level(low, medium, high):\n')\

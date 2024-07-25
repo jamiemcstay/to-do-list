@@ -3,33 +3,28 @@
 https://blogboard.io/blog/knowledge/how-to-write-a-list-to-a-file-in-python/
 https://www.geeksforgeeks.org/clear-screen-python/
 
-Welcome,
+# To Do List Application
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **May 14, 2024**
+## A Python command line tool
+>This application is a Python command line To Do List manager. Users can add, view, remove, and mark tasks as complete through an intuitive command line interface.
 
-## Reminders
+##Table of Contents
+ 1. [ Pre-Project Planning ](#pre-project-planning)  
+ 2. [ Features Left to Implement ](#features-left-to-implement)  
+ 3. [ Technology used ](#technology-used) 
+ 4. [ Testing ](#testing)  
+ 5. [ Bugs ](#bugs)  
+ 6. [ Deployment](#deployment)
+ 7. [ Credits](#credits)
+ 8. [ Content](#content)  
+ 9. [ Acknowledgements](#acknowledgements)
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+<a name="pre-project-planning"></a>
+### Pre-Project Planning
 
-## Creating the Heroku app
+> For this project,  I aimed to create a simple command line To Do List application in Python. The Goal was to build a tool that helps users manage their tasks through a straightforward interface.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+I mapped out the applications flow in 
 
-1. `heroku/python`
-2. `heroku/nodejs`
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
----
-
-Happy coding!
