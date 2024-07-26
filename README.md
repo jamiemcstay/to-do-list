@@ -50,3 +50,21 @@ I mapped out the applications flow in a diagram to understand the user interacti
 > When the user starts the application, they are greeted with a menu:
 
 ![Main Menu](assets/images/main-menu.png)
+
+> The user can choose to view tasks, add new tasks, remove tasks, or mark tasks as complete.
+
+**Add Tasks**: 
+![Add a task](assets/images/add-tasks.png)
+
+> A user is prompted to enter a task description, due date, and priority level.
+
+**View Tasks**:
+![View Tasks](assets/images/view-tasks.png)
+
+**Remove Tasks**:
+![Remove Tasks](assets/images/rempve-tasks.png)
+
+**Mark Tasks Complete**:
+
+
+

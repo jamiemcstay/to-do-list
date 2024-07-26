@@ -19,7 +19,8 @@ def clear_screen():
     """
     Clears the terminal screen.
     """
-    os.system('cls' if os.name == 'nt' else 'clear')
+    # os.system('cls' if os.name == 'nt' else 'clear')
+    print("\033c", end="")
 
 
 def load_tasks():
