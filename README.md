@@ -55,16 +55,24 @@ I mapped out the applications flow in a diagram to understand the user interacti
 
 **Add Tasks**: 
 ![Add a task](assets/images/add-tasks.png)
-
 > A user is prompted to enter a task description, due date, and priority level.
 
 **View Tasks**:
 ![View Tasks](assets/images/view-tasks.png)
+> A user can view their list of tasks. 
 
 **Remove Tasks**:
-![Remove Tasks](assets/images/rempve-tasks.png)
+![Remove Tasks](assets/images/remove-tasks.png)
+> A user can see a list of tasks and choose a task number to remove from their task list. 
 
 **Mark Tasks Complete**:
+![Mark Tasks Complete](assets/images/mark-tasks-complete.png)
+> A user can see their list of tasks and choose a task number to mark as complete. 
+
+**Press m to return to main menu**:
+![Press m to return to menu](assets/images/mark-tasks-complete.png)
+> When in any function in the program, the user has the option to return to the main menu by keying 'm' and pressing enter.
+
 
 
 
