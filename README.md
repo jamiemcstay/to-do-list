@@ -1,14 +1,12 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-https://blogboard.io/blog/knowledge/how-to-write-a-list-to-a-file-in-python/
-https://www.geeksforgeeks.org/clear-screen-python/
 
 # To Do List Application
 
 ## A Python command line tool
 >This application is a Python command line To Do List manager. Users can add, view, remove, and mark tasks as complete through an intuitive command line interface.
 
-##Table of Contents
+## Table of Contents
  1. [ Pre-Project Planning ](#pre-project-planning)  
  2. [ Features Left to Implement ](#features-left-to-implement)  
  3. [ Technology used ](#technology-used) 
@@ -46,9 +44,10 @@ I mapped out the applications flow in a diagram to understand the user interacti
 
 - **Command Line Interface**: The user interacts with the application via a command line menu with options to manage tasks. 
 
-## Game Flow
+## Program Flow
 > When the user starts the application, they are greeted with a menu:
 
+**Main Menu**: 
 ![Main Menu](assets/images/main-menu.png)
 
 > The user can choose to view tasks, add new tasks, remove tasks, or mark tasks as complete.
@@ -72,6 +71,59 @@ I mapped out the applications flow in a diagram to understand the user interacti
 **Press m to return to main menu**:
 ![Press m to return to menu](assets/images/mark-tasks-complete.png)
 > When in any function in the program, the user has the option to return to the main menu by keying 'm' and pressing enter.
+
+<a name="features-left-to-implement"></a>
+### Features Left to Implement
+
+- **Task Editing**: Implement functinality to edit existing tasks.
+- **Task Sorting**: Add options to sort tasks by due date or priority. 
+- **Search Funcionality**: Allow users to search for tasks by keywords or status.
+- **Advanced Filtering**: Provide filters to view tasks based on specific criteria. 
+
+<a name="technology-used"></a>
+### Technology Used
+
+- **Python**: The programming language used to build the application.
+- **JSON**: File format used for data storage and retrieval.
+- **Figma**: Used for editing images. 
+- **Gitpod**: IDE used to develop program. 
+- **Github**: Used to build repository. 
+
+<a name="testing"></a>
+### Testing
+
+The following tests were undertaken by me and 2 housemates. 
+
+#### Manual Testing
+
+| Test | Result |
+|--|--|
+| Program starts and displays the main menu | Pass |
+| User can add a new task and see it in the the list | Pass |
+| A user can remove a task and see it disappear from the list | Pass |
+| A user can mark a task as complete and see its status updated | Pass |
+| User can view the tasks and see their current status | Pass |
+
+#### Error Handling
+
+| Test | Expected Result | Actual Result | Pass/Fail |
+|--|--|--|--|
+| Adding a task with an invalid date format | Error message displayed | Error message displayed | Pass |
+| Adding a task with an invalid priority entry | Error message displayed | Error message displayed |  Pass |
+| Removing a task that doesn't exist | Error message displayed | Error message displayed | Pass |
+| Entering non integers into remove task | Error message displayed | Error message displayed | Pass |
+| Entering non integers into remove task | Error message displayed | Error message displayed | Pass |
+| Entering no integers into mark tasks complete input | Error message displayed | Error message displayed | Pass |
+| Entering no integers into mark tasks complete input | Error message displayed | Error message displayed | Pass |
+| Entering no existant task number into mark tasks complete input | Error message displayed | Error message displayed | Pass |
+| Entering an task number for task already complete into  mark tasks complete input | Error message displayed | Error message displayed | Pass |
+
+<a name="bugs"></a>
+### Identified Bugs
+
+| Issue | Explanation | Result |
+|--|--|--|
+|Heading reprinting in terminal view | OS method not clearing screen correctly in deployed version of screen |
 
 
 
