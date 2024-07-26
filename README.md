@@ -126,6 +126,57 @@ The following tests were undertaken by me and 2 housemates.
 | Heading reprinting in terminal view as OS method in clear screen function not working in deployment | Use xzy instead | Fixed |
 | Extra space added by using backslash (/) in long statements | Seperated long print statements intom seperate print statements | Fixed |
 
+<a name="deployment"></a>
+##  Deployment
+
+I set up an account on Heroku.
+
+I went to the create new app button.
+
+Named the app with a unique name.
+
+Selected my region.
+
+Clicked create app. 
+
+I clicked on the settings tab.
+
+I clicked on Add Buildpack and picked Python and Node.Js (in that order)
+
+I clicked on the deploy section.
+
+I clicked on Github and confirmed I wanted to connect to github. 
+
+I then searched for my repository name and named it to-do-list.
+
+I then clicked connect. 
+
+I then enabled automatic deploys.
+
+The app was successfully deployed.
+
+Clicked view app to view the mock terminal. 
+
+<a name="credits"><\a>
+## Credits
+
+I used multiple resources to understand the best way to build this program in Python. 
+
+### [Programming with Mosh](https://www.youtube.com/watch?v=9OeznAkyQz4&ab_channel=ProgrammingwithMosh)
+-  Helped to understand working with lists. 
+
+### [Python OS Module](https://www.w3schools.com/python/module_os.asp)
+- Helped with understanding working with the OS module.
+
+### [How to use JSON in Python](https://www.youtube.com/watch?v=-51jxlQaxyA&ab_channel=TechWithTim)
+- Helped to understand Python. 
+
+<a name="content"></a>
+## Content and Resources
+
+
+
+
 
 
 
