@@ -268,6 +268,7 @@ def mark_task_complete():
                         print("\nMarking task complete...")
                         print(f"Task complete: {task['Task']}\n")
                         input('Press Enter to continue')
+                        clear_screen()
                 else:
                     clear_screen()
                     print_heading("TO DO LIST")
