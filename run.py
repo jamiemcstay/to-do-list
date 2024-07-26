@@ -84,11 +84,11 @@ def add_task():
                     year, month, day = map(int, due_date.split('-'))
                     break
                 except ValueError:
-                    print("\nInvalid date format. Please enter the date in\
-                          YYYY-MM-DD format.")
+                    print("\nInvalid date format. Please enter the date in")
+                    print("YYYY-MM-DD format.")
             else:
-                print('\nInvalid date format. Please enter the date in\
-                      YYYY-MM-DD format.')
+                print("\nInvalid date format. Please enter the date in")
+                print("YYYY-MM-DD format.")
             input('Press Enter to try again.')
             clear_screen()
 
@@ -105,8 +105,8 @@ def add_task():
                 .strip().lower()
             if priority in ['low', 'medium', 'high']:
                 break
-            print("\nInvalid priority level. Please type, 'low', 'medium',\
-                  'high'")
+            print("\nInvalid priority level. Please type, 'low', 'medium',")
+            print("'high'")
             input("Press Enter to try again\n")
 
         task = {
@@ -124,10 +124,11 @@ def add_task():
         print('\nADD NEW TASKS\n')
         print("Press 'm' to return to main menu\n")
         print("Adding task to list...\n")
-        print(f"New task Added: {task['Task']},\nDue Date: {task['Due Date']}\
-        , Priority: {task['Priority']}\n")
+        print(f"New task Added: {task['Task']}")
+        print(f"Due Date: {task['Due Date']}")
+        print(f"Priority: {task['Priority']}")
 
-        user_input = input("Press Enter to continue \n")
+        user_input = input("\nPress Enter to continue \n")
         if user_input.lower() == 'm':
             clear_screen()
             break
@@ -153,12 +154,12 @@ def remove_tasks():
             print("\nYour current tasks: ")
             for idx, task in enumerate(tasks, 1):
                 status = 'Complete' if task['Status'] else 'Incomplete'
-                print(f"{idx}.  Task: {task['Task']}, Due Date:\
-                    {task['Due Date']}, Priority: {task['Priority']},\
-                     Status: {status}")
+                print(f"{idx}.Task: {task['Task']}")
+                print(f"Due Date: {task['Due Date']}")
+                print(f"Priority: {task['Priority']}")
+                print(f"Status: {status}")
 
-            task_number = input('\nEnter task you want to remove from To Do\
-                                 List\n')
+            task_number = input('\nEnter task number to remove from List')
 
             if task_number == 'm':
                 clear_screen()
@@ -173,9 +174,9 @@ def remove_tasks():
                     removed_task = tasks.pop(task_number - 1)
                     save_tasks()
                     print("\nRemoving task..")
-                    print(f"Task Removed: Task: {removed_task['Task']},\
-                    Due Date: {removed_task['Due Date']}, Priority: \
-                    {removed_task['Priority']}\n")
+                    print(f"Task Removed: Task: {removed_task['Task']}")
+                    print(f"Due Date: {removed_task['Due Date']}")
+                    print(f"Priority: {removed_task['Priority']}")
                     input("Press Enter to continue\n")
                 else:
                     print("\nInvalid task number")
@@ -201,8 +202,10 @@ def view_tasks():
         print("Your current tasks are: ")
         for idx, task in enumerate(tasks, 1):
             status = 'Complete' if task['Status'] else 'Incomplete'
-            print(f"{idx}.  Task: {task['Task']}, Due Date: {task['Due Date']}\
-            , Priority: {task['Priority']}, Status: {status}")
+            print(f"{idx}.Task: {task['Task']}")
+            print(f"Due Date: {task['Due Date']}")
+            print(f"Priority: {task['Priority']}")
+            print(f"Status: {status}")
 
     while True:
         user_input = input("\n").strip().lower()
@@ -232,9 +235,10 @@ def mark_task_complete():
             print('\nYour current tasks:')
             for idx, task in enumerate(tasks, 1):
                 status = 'Complete' if task['Status'] else 'Incomplete'
-                print(f"{idx}.  Task: {task['Task']}, Due Date:\
-                {task['Due Date']}, Priority: {task['Priority']}, Status:\
-                {status}")
+                print(f"{idx}.Task: {task['Task']}")
+                print(f"Due Date: {task['Due Date']}")
+                print(f"Priority: {task['Priority']}")
+                print(f"Status: {status}")
 
             task_number = input("\nEnter task number to mark as complete: \n")
 
@@ -276,51 +280,13 @@ def print_heading(heading):
     ascii_art = {
         "TO DO LIST": r"""
 
-  _______ ____    _____   ____    _      _____  _____ _______ 
+  _______ ____    _____   ____    _      _____  _____ _______
  |__   __/ __ \  |  __ \ / __ \  | |    |_   _|/ ____|__   __|
-    | | | |  | | | |  | | |  | | | |      | | | (___    | |   
-    | | | |  | | | |  | | |  | | | |      | |  \___ \   | |   
-    | | | |__| | | |__| | |__| | | |____ _| |_ ____) |  | |   
-    |_|  \____/  |_____/ \____/  |______|_____|_____/   |_|   
-    """,
-
-
-        "ADD NEW TASKS": r"""
-           _____  _____    _   _ ________          __  _______        _____ _  __ _____ 
-     /\   |  __ \|  __ \  | \ | |  ____\ \        / / |__   __|/\    / ____| |/ // ____|
-    /  \  | |  | | |  | | |  \| | |__   \ \  /\  / /     | |  /  \  | (___ | ' /| (___  
-   / /\ \ | |  | | |  | | | . ` |  __|   \ \/  \/ /      | | / /\ \  \___ \|  <  \___ \ 
-  / ____ \| |__| | |__| | | |\  | |____   \  /\  /       | |/ ____ \ ____) | . \ ____) |
- /_/    \_\_____/|_____/  |_| \_|______|   \/  \/        |_/_/    \_\_____/|_|\_\_____/                                                                                      
-    """,
-
-        "REMOVE TASKS": r"""
-  _____  ______ __  __  ______      ________   _______        _____ _  __ _____ 
- |  __ \|  ____|  \/  |/ __ \ \    / /  ____| |__   __|/\    / ____| |/ // ____|
- | |__) | |__  | \  / | |  | \ \  / /| |__       | |  /  \  | (___ | ' /| (___  
- |  _  /|  __| | |\/| | |  | |\ \/ / |  __|      | | / /\ \  \___ \|  <  \___ \ 
- | | \ \| |____| |  | | |__| | \  /  | |____     | |/ ____ \ ____) | . \ ____) |
- |_|  \_\______|_|  |_|\____/   \/   |______|    |_/_/    \_\_____/|_|\_\_____/ 
-    """,
-
-        "VIEW YOUR TASKS": r"""
- __      _______ ________          __ __     ______  _    _ _____    _______        _____ _  __ _____ 
- \ \    / /_   _|  ____\ \        / / \ \   / / __ \| |  | |  __ \  |__   __|/\    / ____| |/ // ____|
-  \ \  / /  | | | |__   \ \  /\  / /   \ \_/ / |  | | |  | | |__) |    | |  /  \  | (___ | ' /| (___  
-   \ \/ /   | | |  __|   \ \/  \/ /     \   /| |  | | |  | |  _  /     | | / /\ \  \___ \|  <  \___ \ 
-    \  /   _| |_| |____   \  /\  /       | | | |__| | |__| | | \ \     | |/ ____ \ ____) | . \ ____) |
-     \/   |_____|______|   \/  \/        |_|  \____/ \____/|_|  \_\    |_/_/    \_\_____/|_|\_\_____/                                                                                                     
-    """, 
-
-
-        "MARK TASKS COMPLETE": r"""
-  __  __          _____  _  __  _______        _____ _  __ _____    _____ ____  __  __ _____  _      ______ _______ ______ 
- |  \/  |   /\   |  __ \| |/ / |__   __|/\    / ____| |/ // ____|  / ____/ __ \|  \/  |  __ \| |    |  ____|__   __|  ____|
- | \  / |  /  \  | |__) | ' /     | |  /  \  | (___ | ' /| (___   | |   | |  | | \  / | |__) | |    | |__     | |  | |__   
- | |\/| | / /\ \ |  _  /|  <      | | / /\ \  \___ \|  <  \___ \  | |   | |  | | |\/| |  ___/| |    |  __|    | |  |  __|  
- | |  | |/ ____ \| | \ \| . \     | |/ ____ \ ____) | . \ ____) | | |___| |__| | |  | | |    | |____| |____   | |  | |____ 
- |_|  |_/_/    \_\_|  \_\_|\_\    |_/_/    \_\_____/|_|\_\_____/   \_____\____/|_|  |_|_|    |______|______|  |_|  |______|
-    """                                                                                                                        
+    | | | |  | | | |  | | |  | | | |      | | | (___    | |
+    | | | |  | | | |  | | |  | | | |      | |  \___ \   | |
+    | | | |__| | | |__| | |__| | | |____ _| |_ ____) |  | |
+    |_|  \____/  |_____/ \____/  |______|_____|_____/   |_|
+    """
     }
 
     print(ascii_art.get(heading, heading))
@@ -338,7 +304,6 @@ def main():
     while True:
         print("\n")
         print_heading("TO DO LIST")
-        # print("ToDo List")
         show_options()
         choose_option = input("Choose an option: \n")
         if choose_option == '1':
