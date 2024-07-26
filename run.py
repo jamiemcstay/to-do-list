@@ -173,12 +173,17 @@ def remove_tasks():
                 if 0 < task_number <= len(tasks):
                     removed_task = tasks.pop(task_number - 1)
                     save_tasks()
+                    clear_screen()
+                    print_heading("TO DO LIST")
                     print("\nRemoving task..")
                     print(f"Task Removed: Task: {removed_task['Task']}")
                     print(f"Due Date: {removed_task['Due Date']}")
                     print(f"Priority: {removed_task['Priority']}")
                     input("Press Enter to continue\n")
                 else:
+                    clear_screen()
+                    print_heading("TO DO LIST")
+                    print('\nREMOVE TASKS\n')
                     print("\nInvalid task number")
                     input("Press Enter to try again.")
             except ValueError:
