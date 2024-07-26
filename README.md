@@ -121,9 +121,12 @@ The following tests were undertaken by me and 2 housemates.
 <a name="bugs"></a>
 ### Identified Bugs
 
-| Issue | Explanation | Result |
-|--|--|--|
-|Heading reprinting in terminal view | OS method not clearing screen correctly in deployed version of screen |
+| Issue | Action | Result |
+|--|--|--|--|
+| Heading reprinting in terminal view as OS method in clear screen function not working in deployment | Use xzy instead | Fixed |
+| Extra space added by using backslash (/) in long statements | Seperated long print statements intom seperate print statements | Fixed |
+
+
 
 
 
