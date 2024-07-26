@@ -294,7 +294,10 @@ def mark_task_complete():
 
 
 def print_heading(heading):
-
+    """
+    Prints the heading. 
+    """
+    clear_screen()
     ascii_art = {
         "TO DO LIST": r"""
 
