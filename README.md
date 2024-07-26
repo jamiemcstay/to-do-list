@@ -123,7 +123,7 @@ The following tests were undertaken by me and 2 housemates.
 
 | Issue | Action | Result |
 |--|--|--|--|
-| Heading reprinting in terminal view as OS method in clear screen function not working in deployment | Use xzy instead | Fixed |
+| Heading reprinting in terminal view as OS method in clear screen function not working in deployment | Used escape sequence print("\033c", end="") instead | Fixed |
 | Extra space added by using backslash (/) in long statements | Seperated long print statements intom seperate print statements | Fixed |
 
 <a name="deployment"></a>
@@ -171,8 +171,26 @@ I used multiple resources to understand the best way to build this program in Py
 ### [How to use JSON in Python](https://www.youtube.com/watch?v=-51jxlQaxyA&ab_channel=TechWithTim)
 - Helped to understand Python. 
 
+### [Python RegEx](https://www.w3schools.com/python/python_regex.asp)
+- RegEx module used for checking correct formats and characters in entries. 
+
 <a name="content"></a>
 ## Content and Resources
+
+### W3 Schools
+> For referencing Python information.
+
+### Code Institute
+> Curriculum content
+
+### Youtube
+> Used to understand more about Python. 
+
+## Acknowledgements
+
+I would like to thank the Code Institute team and tutors for help throughout the building of this project.
+
+Special thanks to my mentor Alan Bushell for his advice and feedback upto and during the building of this project. 
 
 
 
