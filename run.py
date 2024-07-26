@@ -149,7 +149,7 @@ def remove_tasks():
             user_input = input("\n").strip().lower()
             if user_input == 'm':
                 clear_screen()
-                break
+            continue
         else:
             print("\nYour current tasks: ")
             for idx, task in enumerate(tasks, 1):
@@ -187,6 +187,9 @@ def remove_tasks():
                     print("\nInvalid task number")
                     input("Press Enter to try again.")
             except ValueError:
+                clear_screen()
+                print_heading("TO DO LIST")
+                print('\nREMOVE TASKS\n')
                 print("\nPlease enter a valid task number.")
                 input("Press Enter to try again.")
 
