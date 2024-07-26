@@ -56,7 +56,8 @@ def add_task():
     """
     while True:
         clear_screen()
-        print_heading("ADD NEW TASKS")
+        print_heading("TO DO LIST")
+        print("\nADD NEW TASKS\n")
         print("Press 'm' to return to main menu\n")
 
         task_des = input("Add new task: \n")
@@ -72,8 +73,8 @@ def add_task():
 
         while True:
             clear_screen()
-            print_heading("ADD NEW TASKS")
-            # print("Press 'm' to return to main menu\n")
+            print_heading("TO DO LIST")
+            print("\nADD NEW TASKS\n")
             print(f"Task added: {task_des}\n")
 
             due_date = input('\nEnter due date (YYYY-MM-DD): \n')
@@ -96,8 +97,8 @@ def add_task():
 
         while True:
             clear_screen()
-            print_heading("ADD NEW TASKS")
-            # print("Press 'm' to return to main menu\n")
+            print_heading('TO DO LIST')
+            print("\nADD NEW TASKS\n")
             print(f"Task added: {task_des}")
             print(f"Due Date: {due_date}\n")
             priority = input('\nEnter priority level(low, medium, high):\n')\
@@ -119,7 +120,8 @@ def add_task():
         save_tasks()
 
         clear_screen()
-        print_heading("ADD NEW TASKS")
+        print_heading("TO DO LIST")
+        print('\nADD NEW TASKS\n')
         print("Press 'm' to return to main menu\n")
         print("Adding task to list...\n")
         print(f"New task Added: {task['Task']},\nDue Date: {task['Due Date']}\
@@ -137,17 +139,18 @@ def remove_tasks():
     """
     while True:
         clear_screen()
-        print_heading('REMOVE TASKS')
+        print_heading("TO DO LIST")
+        print('\nREMOVE TASKS\n')
         print("Press 'm to return to main menu\n")
 
         if not tasks:
-            print("You have no current tasks.")
+            print("\nYou have no current tasks.")
             user_input = input("\n").strip().lower()
             if user_input == 'm':
                 clear_screen()
                 break
         else:
-            print("Your current tasks: ")
+            print("\nYour current tasks: ")
             for idx, task in enumerate(tasks, 1):
                 status = 'Complete' if task['Status'] else 'Incomplete'
                 print(f"{idx}.  Task: {task['Task']}, Due Date:\
@@ -188,7 +191,8 @@ def view_tasks():
     and status.
     """
     clear_screen()
-    print_heading('VIEW YOUR TASKS')
+    print_heading("TO DO LIST")
+    print("\nVIEW TAKS\n")
     print("Press 'm to return to main menu\n")
 
     if not tasks:
@@ -214,7 +218,8 @@ def mark_task_complete():
     """
     clear_screen()
     while True:
-        print_heading('MARK TASKS COMPLETE')
+        print_heading("TO DO LIST")
+        print("\nMARK COMPLETE TASKS\n")
         print("Press 'm' to return to main menu")
 
         if not tasks:
