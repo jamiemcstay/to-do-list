@@ -26,10 +26,27 @@ https://www.geeksforgeeks.org/clear-screen-python/
 
 I mapped out the applications flow in a diagram to understand the user interactions and task management logic required. This helped in structuring the project and identifying key features and functionalities. Please see below for flow diagram. 
 
-![Figjam Flow Diagram]()
+![Figjam Flow Diagram](assets/images/to-do-list-flow-chart.png)
 
+### Application Structure
 
+#### Task Management
 
+- **Add Tasks**: Allows users to add new tasks with the description and due date.
+- **View Tasks**: Displays a list of all tasks wit their status.
+- **Remove Tasks**: Enable users to remove tasks from the list.
+- **Mark Tasks Complete**: Marks tasks as complete and updates their status.
 
+#### Data Management
 
+- **JSON STORAGE**: Tasks are saved in a `tasks.json` file for persistence.
+- **Data Validation**: Ensures that data entered by the user is correctly formatted.
 
+#### User Interaction
+
+- **Command Line Interface**: The user interacts with the application via a command line menu with options to manage tasks. 
+
+## Game Flow
+> When the user starts the application, they are greeted with a menu:
+
+![Main Menu](assets/images/main-menu.png)

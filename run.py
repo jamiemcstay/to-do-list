@@ -219,8 +219,8 @@ def mark_task_complete():
     Prompts the user to mark a specific task as complete.
     Updates the task status to 'Complete' and saves updated tasks.
     """
-    clear_screen()
     while True:
+        clear_screen()
         print_heading("TO DO LIST")
         print("\nMARK COMPLETE TASKS\n")
         print("Press 'm' to return to main menu")
@@ -254,25 +254,34 @@ def mark_task_complete():
                 if 0 < task_number <= len(tasks):
                     task = tasks[task_number - 1]
                     if task['Status']:
-                        print("\nThis task is already complete...")
-                        input('Press Enter to continue\n')
                         clear_screen()
+                        print_heading("TO DO LIST")
+                        print("\nMARK COMPLETE TASKS\n")
+                        print("This task is already complete...")
+                        input('Press Enter to continue\n')
                     else:
-                        print("\nMarking task as complete...")
                         task['Status'] = True
                         save_tasks()
+                        clear_screen()
+                        print_heading("TO DO LIST")
+                        print("MARK COMPLETE TASKS")
+                        print("\nMarking task complete...")
                         print(f"Task complete: {task['Task']}\n")
                         input('Press Enter to continue')
-                        clear_screen()
                 else:
+                    clear_screen()
+                    print_heading("TO DO LIST")
+                    print("MARK COMPLETE TASKS")
                     print("\nInvalid task number")
                     input('Press Enter to try again\n')
-                    clear_screen()
 
             except ValueError:
+                clear_screen()
+                print_heading("TO DO LIST") 
+                print("MARK COMPLETE TASKS")           
                 print('\nPlease enter a valid number')
                 input('Press Enter to try again.')
-                clear_screen()
+
 
 
 def print_heading(heading):
