@@ -286,16 +286,15 @@ def mark_task_complete():
 
             except ValueError:
                 clear_screen()
-                print_heading("TO DO LIST") 
-                print("MARK COMPLETE TASKS")           
+                print_heading("TO DO LIST")
+                print("MARK COMPLETE TASKS")
                 print('\nPlease enter a valid number')
                 input('Press Enter to try again.')
 
 
-
 def print_heading(heading):
     """
-    Prints the heading. 
+    Prints the heading.
     """
     clear_screen()
     ascii_art = {

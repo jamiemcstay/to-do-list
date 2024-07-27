@@ -118,7 +118,14 @@ The following tests were undertaken by me and 2 housemates.
 | Entering no existant task number into mark tasks complete input | Error message displayed | Error message displayed | Pass |
 | Entering an task number for task already complete into  mark tasks complete input | Error message displayed | Error message displayed | Pass |
 
+
+#### Pep
+
+
+
 <a name="bugs"></a>
+
+
 ### Identified Bugs
 
 | Issue | Action | Result |
