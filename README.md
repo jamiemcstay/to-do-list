@@ -1,10 +1,13 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-
 # To Do List Application
 
 ## A Python command line tool
 >This application is a Python command line To Do List manager. Users can add, view, remove, and mark tasks as complete through an intuitive command line interface.
+
+### By Jamie McStay
+
+### **[Live Site](https://to-do-list-app-1-ebf75893e9b7.herokuapp.com/)**
+
+### **[Repository](https://github.com/jamiemcstay?tab=repositories)**
 
 ## Table of Contents
  1. [ Pre-Project Planning ](#pre-project-planning)  
@@ -130,7 +133,7 @@ I also used Pep8 online checker to validate my code and ensure it was free from 
 ### Identified Bugs
 
 | Issue | Action | Result |
-|--|--|--|--|
+|--|--|--|
 | Heading reprinting in terminal view as OS method in clear screen function not working in deployment | Used escape sequence print("\033c", end="") instead | Fixed |
 | Extra space added by using backslash (/) in long statements | Seperated long print statements intom seperate print statements | Fixed |
 
@@ -165,7 +168,8 @@ The app was successfully deployed.
 
 Clicked view app to view the mock terminal. 
 
-<a name="credits"><\a>
+<a name="credits"></a>
+
 ## Credits
 
 I used multiple resources to understand the best way to build this program in Python. 
