@@ -121,10 +121,11 @@ The following tests were undertaken by me and 2 housemates.
 
 #### Pep
 
+I also used Pep8 online checker to validate my code and ensure it was free from errors, the results are below.
 
+![Pep* Online checker results](assets/images/pep-8.png)
 
 <a name="bugs"></a>
-
 
 ### Identified Bugs
 
@@ -183,6 +184,9 @@ I used multiple resources to understand the best way to build this program in Py
 
 <a name="content"></a>
 ## Content and Resources
+
+### Figma 
+> For editing images. 
 
 ### W3 Schools
 > For referencing Python information.
