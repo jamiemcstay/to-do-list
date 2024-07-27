@@ -7,7 +7,7 @@
 
 ### **[Live Site](https://to-do-list-app-1-ebf75893e9b7.herokuapp.com/)**
 
-### **[Repository](https://github.com/jamiemcstay?tab=repositories)**
+### **[Repository](https://github.com/jamiemcstay/to-do-list)**
 
 ## Table of Contents
  1. [ Pre-Project Planning ](#pre-project-planning)  
@@ -78,7 +78,7 @@ I mapped out the applications flow in a diagram to understand the user interacti
 <a name="features-left-to-implement"></a>
 ### Features Left to Implement
 
-- **Task Editing**: Implement functinality to edit existing tasks.
+- **Task Editing**: Implement functionality to edit existing tasks.
 - **Task Sorting**: Add options to sort tasks by due date or priority. 
 - **Search Funcionality**: Allow users to search for tasks by keywords or status.
 - **Advanced Filtering**: Provide filters to view tasks based on specific criteria. 
